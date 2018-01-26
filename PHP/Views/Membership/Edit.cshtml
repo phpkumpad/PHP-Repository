@@ -1,0 +1,44 @@
+﻿@model MemberPcp
+@{
+    ViewBag.Title = "Edit Member PCP assigment";
+    Layout = "_AdminLayout";
+}
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Pk"/>
+    <div class="form-group">
+        <label asp-for="MemberId">Member ID</label>
+        <div><span asp-validation-for="MemberId" class="text-danger"></span></div>
+        <input asp-for="MemberId" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="MemberName">Member Name</label>
+        <div><span asp-validation-for="MemberName" class="text-danger"></span></div>
+        <input asp-for="MemberName" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="PcpgrpTaxId">PCP Group Tax ID</label>
+        <div><span asp-validation-for="PcpgrpTaxId" class="text-danger"></span></div>
+        <input asp-for="PcpgrpTaxId" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="PcpgrpName">PCP Group Name</label>
+        <div><span asp-validation-for="PcpgrpName" class="text-danger"></span></div>
+        <input asp-for="PcpgrpName" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="PcpNpi">PCP NPI</label>
+        <div><span asp-validation-for="PcpNpi" class="text-danger"></span></div>
+        <input asp-for="PcpNpi" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="PcpName">PCP Name</label>
+        <div><span asp-validation-for="PcpName" class="text-danger"></span></div>
+        <input asp-for="PcpName" class="form-control"/>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+
+</form>

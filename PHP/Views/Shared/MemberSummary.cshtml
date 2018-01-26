@@ -1,0 +1,61 @@
+﻿@model Member
+
+    
+<table class="table-sm table-bordered table-striped m-1 p-1 bg-faded">
+    <thead>
+    <tr class="font-weight-bold">
+        <td>Member ID</td>
+        <td>Member Name</td>
+        <td>PCP Group</td>
+        <td>PCP Name</td>
+        <td>PCF Form</td>
+        <td>PCF Payble</td>
+        <td>P4P Payable</td>
+    </tr>
+    </thead>
+    
+
+</table>
+<div class="card card-outline-primary m-1 p-1">
+    <div class="bg-faded p-1">
+        <h4>
+            @Model.MemberName
+            <button class="btn btn-secondary btn-sm" style="float: right" >
+                
+                    <a href="@Model.FileName()">@Model.FormId</a>
+        
+            </button>
+        </h4>
+    </div>
+    <div class="cart-text p-1"><
+        <table class="small m-2 p-2">
+            <thead>
+            <tr class="font-weight-bold">
+                <td>Member ID</td>
+                <td>Member Name</td>
+                <td>PCP Group</td>
+                <td>PCP Name</td>
+                <td>PCF Form</td>
+                <td>PCF Payble</td>
+                <td>P4P Payable</td>
+            </tr>
+            </thead>
+            <tr>
+                <td class="font-weight-bold">PCP Group Name: </td> <td>@Model.PcpgrpName</td>
+                <td class="font-weight-bold">PCP Name: </td><td>@Model.Pcpname</td>
+                <td class="font-weight-bold">File Name:</td><td></td>
+                <td class="font-weight-bold">Form Date:</td><td>@Model.FormDate</td>
+
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Total Office Visits: </td> <td>@Model.TotOffVis</td>
+                <td class="font-weight-bold">Total PCP Visits: </td><td>@Model.TotPcpvis</td>
+                <td class="font-weight-bold">Total Gap Count: </td><td>@Model.TotalGapCount</td>
+                <td class="font-weight-bold">Total Coef Sum: </td> <td>@Model.CoefficientSum.ToString("F2")</td>
+
+            </tr>
+          
+
+        </table>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+﻿@model MembersListViewModel
+
+
+
+<table class="table-sm table-bordered table-striped m-1 p-1">
+    <thead>
+    <tr class="font-weight-bold bg-faded">
+        <td>Member ID</td>
+        <td>Member Name</td>
+    
+        <td>PCP Name</td>
+            
+        <td>PCF Payble</td>
+        <td>P4P Payable</td>
+        <td>Add to Cart</td>
+        <td>PCF Form</td>
+    </tr>
+    </thead>
+    <tbody>
+    
+    @foreach (var m in Model.Members)
+    {
+        <tr>
+            <td>@m.MemberId</td>
+            <td>@m.MemberName</td>
+         
+            <td>@m.Pcpname</td>
+            
+            <td class="text-center">@if (m.Payable == 1){<i class="fa fa-check"></i>}</td>
+            <td class="text-center">@if (m.P4p > 0){<i class="fa fa-check"></i>}</td>
+            
+            <td class="text-center">
+            @if (!Model.Cart.InTheCart(m))
+            {
+                <form id="@m.FormId" asp-action="AddToCart" asp-controller="Cart" method="post">
+                    <input type="hidden" name="formId" value="@m.FormId"/>
+                    <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()"/>
+                    <span class="text-center"><button type="submit" class="btn btn-success btn-sm fa fa-plus"></button></span>
+                </form>
+            }
+               
+            </td>
+            <td> <button class="btn btn-secondary btn-sm" style="float: right"><a href="@m.FileName()">@m.FormId</a></button></td>
+          
+
+        </tr>
+      
+    }
+   
+    </tbody>
+
+</table>
+
+
+
+<!--
+
+
+@foreach (var m in Model.Members)
+{
+   @Html.Partial("MemberSummary",m)
+      
+}
+ 
+    
+-->
+
+<div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
+     page-class="btn" page-class-normal="btn-secondary"
+     page-class-selected="btn-primary" page-url-pcp="@Model.CurrentPcp"
+     class="btn-group pull-left m-1">
+    
+</div>

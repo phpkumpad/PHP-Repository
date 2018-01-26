@@ -1,0 +1,35 @@
+﻿@model CartIndexViewModel
+
+<h2>Your Cart</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Member ID</th>
+        <th>Member Name</th>
+        <th>Member PCP</th>
+        <th>Form ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var line in Model.Cart.Lines)
+    {
+        <tr>
+            <td>@line.Member.MemberId</td>
+            <td>@line.Member.MemberName</td>
+            <td>@line.Member.Pcpname</td>
+            <td>@line.Member.FormId</td>
+            <td>
+                <form asp-action="RemoveFromCart" method="post">
+                    <input type="hidden" name="formId" value="@line.Member.FormId"/>
+                    <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                    <button type="submit" class  ="btn btn-sm btn-danger">Remove</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue</a>
+    <a class="btn btn-primary" asp-action="Download" asp-controller="Order">Download Forms</a>
+</div>

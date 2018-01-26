@@ -1,0 +1,18 @@
+﻿@model Cart
+
+<h3>Your @Model.Lines.Count() forms will be downloading soon...</h3>
+
+<div class="text-left">
+    @foreach (var c in Model.Lines)
+    {
+        <div class="text-center">@c.Member.FileName()</div>
+    }
+</div>
+
+
+<form asp-action="Completed" method="post">
+<div class="text-center">
+    <input class="btn btn-primary" type="submit" value="Complete Download"/>
+</div>
+
+</form>

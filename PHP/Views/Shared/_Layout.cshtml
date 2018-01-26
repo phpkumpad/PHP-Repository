@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" 
+          asp-href-include="/lib/bootstrap/dist/**/*.min.css"
+          asp-href-exclude="**/*-reboot*,**/*-grid*"/>
+    <link rel="stylesheet" asp-href-include="/lib/fontawesome/css/*.css"/>
+    <title>Patient Care Form List</title>
+</head>
+<body>
+    <div class="navbar navbar-inverse bg-inverse" role="navigation">
+        <div class="row">
+            <a class="col navbar-brand" href="#">Prominence Health Plan</a>
+            <div class="col-4 text-right">
+                @await Component.InvokeAsync("CartSummary")
+            </div>
+        </div>
+        
+        
+    </div>
+    <div class="row m-1 p-1">
+        <div id="categories" class="col-2">
+            @await Component.InvokeAsync("PcpMenu")
+        </div>
+        <div class="col-8">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
