@@ -57,7 +57,7 @@ namespace PHP
             app.UseSession();
             app.UseAuthentication();
             IdentitySeedData.EnsurePopulated(app);
-            // adding test for github
+            // adding test for githu
             app.UseMvc(routes =>
             {
 
